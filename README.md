@@ -11,7 +11,7 @@ Then modify DICT_PATH
 DICT_PATH = u'/Users/brian/Documents/LDOCE5++ V 2-15/LDOCE5++ V 2-15.mdx'
 ```
 
-## Functions
+## Features
 Extract word pronunciation (audio, Bre and Ame)
 
 Extract sentence examples (example audio + English text)   
