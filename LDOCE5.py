@@ -3,6 +3,8 @@ import os
 import re
 import random
 from ..base import *
+# from BeautifulSoup import BeautifulSoup
+# from bs4 import BeautifulSoup
 
 
 VOICE_PATTERN = r'href="sound:\/\/([\w\/]+%s\/\w*\.mp3)"'
@@ -56,40 +58,53 @@ class Ldoce5(MdxService):
     def fld_voiceame(self):
         return self._fld_voice(self.get_html(), 'us')
 
-    @export([u'例句加音频', u'Examples with audios'])
+    @export('All examples with audios')
     def fld_sentence_audio(self):
         return self._range_sentence_audio([i for i in range(0, 100)])
 
-    @export([u'随机例句加音频', u'Random example with audio'])
+    @export('Random example with audio')
     def fld_random_sentence_audio(self):
         return self._range_sentence_audio()
 
-    @export([u'首2个例句加音频', u'First 2 examples with audios'])
+    @export('First example with audio')
+    def fld_first1_sentence_audio(self):
+        return self._range_sentence_audio([0])
+
+    @export('First 2 examples with audios')
     def fld_first2_sentence_audio(self):
         return self._range_sentence_audio([0, 1])
 
-    # def _fld_audio(self, audio):
-    #     val = '/' + audio
-    #     name = get_hex_name('mdx-'+self.unique.lower(), val, 'mp3')
-    #     name = self.save_file(val, name)
-    #     if name:
-    #         return self.get_anki_label(name, 'audio')
-    #     return ''
-    #
-    # def _range_sentence_audio(self, range_arr=None):
-    #     # m = re.findall(r'<div class="EXAMPLE"><a class="speaker exafile fa fa-volume-up" href="sound:\/\/media\/english\/exaProns\/\S+\.mp3" title="Play Example"> <\/a><span class="english LDOCE_switch_lang switch_children">.*?<div class="cn_txt">.*?<\/div><\/span><\/div>', self.get_html())
-    #     m = re.findall(r'<div class="EXAMPLE"><a class=".*?" href="sound:\/\/media\/english\.*?\S+\.mp3".*?> <\/a><span class=.*?>.*?<div class="cn_txt">.*?<\/div><\/span><\/div>', self.get_html())
-    #
-    #     if m:
-    #         range_arr = range_arr if range_arr else [random.randrange(0, len(m) - 1, 1)]
-    #         my_str = ''
-    #         mp3 = ''
-    #         for i, i_str in enumerate(m):
-    #             if i in range_arr:
-    #                 # sound = re.search(r'href="sound:\/\/([\w\/]+\S*\.mp3)"', i_str)
-    #                 # mp3 = self._fld_audio(sound)
-    #                 # i_str = re.sub(r'<a class="speaker exafile fa fa-volume-up" href="sound:\/\/[\w\/]+\S*\.mp3" title="Play Example"> <\/a>', '', i_str).strip()
-    #                 my_str = my_str + '<li>' + i_str + ' ' + mp3 + '</li>'
-    #
-    #         return self.get_html()
-    #     return ''
+    def _fld_audio(self, audio):
+        name = get_hex_name('mdx-'+self.unique.lower(), audio, 'mp3')
+        name = self.save_file(audio, name)
+        if name:
+            return self.get_anki_label(name, 'audio')
+        return ''
+
+    def _range_sentence_audio(self, range_arr=None):
+        m = re.findall(r'<div class="EXAMPLE">\s*.*>\s*.*<\/div>', self.get_html())
+        if m:
+            soup = parse_html(m[0])
+            el_list = soup.findAll('div', {'class':'EXAMPLE'})
+            if el_list:
+                maps = []
+                for element in el_list:
+                    i_str = ''
+                    for content in element.contents:
+                        i_str = i_str + str(content).decode('utf-8')
+                    sound = re.search(r'<a[^>]+?href=\"sound\:\/(.*?\.mp3)\".*<\/a>', i_str)
+                    if sound:
+                        maps.append([sound, i_str])
+            my_str = ''
+            range_arr = range_arr if range_arr else [random.randrange(0, len(maps) - 1, 1)]
+            for i, e in enumerate(maps):
+                if i in range_arr:
+                    i_str = e[1]
+                    sound = e[0]
+                    mp3 = self._fld_audio(sound.groups()[0])
+                    i_str = re.sub(r'<a[^>]+?href=\"sound\:\/.*?\.mp3\".*<\/a>', '', i_str).strip()
+                    # remove chinese text
+                    i_str = re.sub(r'(<div class="cn_txt">\s*\S*<\/div>)<\/span>', '', i_str).strip()
+                    my_str = my_str + mp3 + ' ' + i_str  + '<br>'
+            return my_str
+        return ''
