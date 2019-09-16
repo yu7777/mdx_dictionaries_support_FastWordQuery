@@ -14,7 +14,7 @@ DICT_PATH = u'/Users/brian/Documents/LDOCE5++ V 2-15/LDOCE5++ V 2-15.mdx'
 ## Functions
 Extract word pronunciation (audio, Bre and Ame)
 
-Extract sentence examples (example audio + English text)
+Extract sentence examples (example audio + English text)   
 cn_text is removed by default. Plese comment out the following code if you want to keep cn_txt.
 ```python
 i_str = re.sub(r'(<div class="cn_txt">\s*\S*<\/div>)<\/span>', '', i_str).strip()
