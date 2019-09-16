@@ -4,7 +4,7 @@ Anki addon Fastwq
 
 Only tested on LDOCE5++ V 2-15.mdx
 
-Extract word pronunciation (Bre and Ame)
+Extract word pronunciation (audio, Bre and Ame)
 
 Extract sentence examples (example audio + English text)
 cn_text is removed by default. Plese comment out the following code if you want to keep cn_txt.
