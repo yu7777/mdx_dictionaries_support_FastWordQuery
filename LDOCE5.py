@@ -18,7 +18,7 @@ DICT_PATH = u'/Users/brian/Documents/LDOCE5++ V 2-15/LDOCE5++ V 2-15.mdx' # u'E:
 
 
 @register([u'本地词典-LDOCE5++', u'MDX-LDOCE5++'])
-class Ldoce5(MdxService):
+class Ldoce5plus(MdxService):
 
     def __init__(self):
         dict_path = DICT_PATH
@@ -29,10 +29,10 @@ class Ldoce5(MdxService):
                 service = service_pool.get(clazz.__unique__)
                 title = service.builder._title if service and service.support else u''
                 service_pool.put(service)
-                if title.startswith(u'LDOCE5'):
+                if title.startswith(u'LDOCE5++'):
                     dict_path = service.dict_path
                     break
-        super(Ldoce5, self).__init__(dict_path)
+        super(Ldoce5plus, self).__init__(dict_path)
 
     @property
     def title(self):
@@ -91,7 +91,7 @@ class Ldoce5(MdxService):
                 for element in el_list:
                     i_str = ''
                     for content in element.contents:
-                        i_str = i_str + str(content).decode('utf-8')
+                        i_str = i_str + str(content)
                     sound = re.search(r'<a[^>]+?href=\"sound\:\/(.*?\.mp3)\".*<\/a>', i_str)
                     if sound:
                         maps.append([sound, i_str])
@@ -102,9 +102,16 @@ class Ldoce5(MdxService):
                     i_str = e[1]
                     sound = e[0]
                     mp3 = self._fld_audio(sound.groups()[0])
-                    i_str = re.sub(r'<a[^>]+?href=\"sound\:\/.*?\.mp3\".*<\/a>', '', i_str).strip()
-                    # remove chinese text
-                    i_str = re.sub(r'(<div class="cn_txt">\s*\S*<\/div>)<\/span>', '', i_str).strip()
+                    i_str = re.sub('<[^<]+?>', '', i_str)
+                    i_str = re.sub('\xa0', '', i_str)
+                    # i_str = re.sub(r'<a[^>]+?href=\"sound\:\/.*?\.mp3\".*<\/a>', '', i_str).strip()
+                    # chinese text
+                    # cn_text = re.search(r'<div class="cn_txt">(\s*\S*)<\/div><\/span>', i_str)
+                    # cn_text_strip = " "
+                    # if cn_text:
+                    #     cn_text_strip = cn_text.groups()[0]
+                    # i_str = re.sub(r'(<div class="cn_txt">\s*\S*<\/div>)<\/span>', '', i_str).strip()
+                    # my_str = my_str + mp3 + ' ' + i_str  + cn_text_strip + '<br>'
                     my_str = my_str + mp3 + ' ' + i_str  + '<br>'
             return my_str
         return ''
