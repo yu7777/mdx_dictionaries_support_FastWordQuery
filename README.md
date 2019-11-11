@@ -32,3 +32,12 @@ Sound
 The Little Dict     
 牛津高阶双解(第9版)  
 
+# WordQuery-dict
+EPFD2017.mdx 词组词频词典。  
+
+Usage:    
+put EPFD2017.py file into Anki2/addons/wquery/service/    
+You need change dictionary path yourself in this file.  
+
+Feature:    
+extract frequency of word group and put it into designated anki card field.
