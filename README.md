@@ -1,7 +1,8 @@
-# Ldoce5++
+# FastWordQuery mdx dictionaries support   
+You need put corresponding py files to FastWordQuery's serivce/dict folder.   
 
-Anki addon Fastwq 
 
+# Ldoce5++   
 Only tested on LDOCE5++ V 2-15
 
 ## Usage.  
@@ -21,3 +22,13 @@ Extract sentence examples (example audio + English text)
 
 
 <img src="https://github.com/yu7777/Ldoce5--/blob/master/Screen%20Shot%202019-09-21%20at%203.27.47%20pm.png">
+
+
+
+
+## Other mdx dictionaries    
+lgmcw_Sound++   
+Sound   
+The Little Dict     
+牛津高阶双解(第9版)  
+
