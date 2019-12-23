@@ -21,9 +21,6 @@ Extract sentence examples (example audio + English text)
 <img src="https://github.com/yu7777/Ldoce5--/blob/master/Screen%20Shot%202019-09-16%20at%2011.37.49%20am.png">
 
 
-<img src="https://github.com/yu7777/Ldoce5--/blob/master/Screen%20Shot%202019-09-21%20at%203.27.47%20pm.png">
-
-
 
 
 ## Other mdx dictionaries    
