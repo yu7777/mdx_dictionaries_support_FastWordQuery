@@ -33,7 +33,11 @@ The Little Dict
 EPFD2017.mdx 词组词频词典。  
 
 Usage:    
-put EPFD2017.py file into Anki2/addons/wquery/service/    
+put EPFD2017.py file into     
+```python
+Anki2/addons/wquery/service/
+```
+Note that this path is for wordquery add-on, not for fastwq add-on.   
 You need change dictionary path yourself in this file.  
 
 Feature:    
