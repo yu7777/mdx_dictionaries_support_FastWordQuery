@@ -29,8 +29,9 @@ Sound
 The Little Dict     
 牛津高阶双解(第9版)  
 
+- - -
 ```python
-
+The following script is only for Wordquery addon
 ```
 # WordQuery-dict
 EPFD2017.mdx 词组词频词典。  
