@@ -3,7 +3,7 @@ You need put corresponding py files to FastWordQuery's serivce/dict folder.
 
 
 # Ldoce5++   
-Only tested on LDOCE5++ V 2-15
+Tested on LDOCE5++ V 2-15
 
 ## Usage.  
 Please download dict files. (LDOCE5++ V 2-15.mdx and LDOCE5++ V 2-15.mdd).  
