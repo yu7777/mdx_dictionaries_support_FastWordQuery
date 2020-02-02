@@ -6,7 +6,7 @@ You need put corresponding py files to FastWordQuery's serivce/dict folder.
 Tested on LDOCE5++ V 2-15
 
 ## Usage.  
-Please download dict files. (LDOCE5++ V 2-15.mdx and LDOCE5++ V 2-15.mdd).  
+Find corresponding mdx and mdd files. (LDOCE5++ V 2-15.mdx and LDOCE5++ V 2-15.mdd).  
 Then modify DICT_PATH in LDOCE5.py
 ```python
 DICT_PATH = u'/Users/brian/Documents/LDOCE5++ V 2-15/LDOCE5++ V 2-15.mdx'
