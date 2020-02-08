@@ -1,11 +1,12 @@
 # FastWordQuery mdx dictionaries support   
-You need put corresponding py files to FastWordQuery's serivce/dict folder.   
+A collection of files for mdx dictionaries support   
 
 
 # Ldoce5++   
 Tested on LDOCE5++ V 2-15
 
 ## Usage.  
+You need put corresponding py files to FastWordQuery's serivce/dict folder.    
 Find corresponding mdx and mdd files. (LDOCE5++ V 2-15.mdx and LDOCE5++ V 2-15.mdd).  
 Then modify DICT_PATH in LDOCE5.py
 ```python
