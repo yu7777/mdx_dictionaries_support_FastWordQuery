@@ -34,6 +34,7 @@ The Little Dict
 I am planning to work on 韦氏高阶英汉双解v3 next. Hope to find suitable mdx and mdd files.:smiley::smiley::smiley:
 
 - - -
+:smiley_cat::smiley_cat::smiley_cat:
 ```python
 The following script is only for Wordquery addon
 ```
