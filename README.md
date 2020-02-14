@@ -30,6 +30,9 @@ Sound
 The Little Dict     
 牛津高阶双解(第9版)  
 
+## To do list.  
+I am planning to work on 韦氏高阶英汉双解v3 next. Hope to find suitable mdx and mdd files.:smiley::smiley::smiley:
+
 - - -
 ```python
 The following script is only for Wordquery addon
