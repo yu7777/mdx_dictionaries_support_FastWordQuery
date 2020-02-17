@@ -32,7 +32,7 @@ The Little Dict
 
 ## To do list.  
 I am planning to work on 韦氏高阶 next.  
-Hope to find suitable mdx and mdd files.:smiley::smiley::smiley:
+waiting for mdd file.:smiley::smiley::smiley:
       
       
 #            
