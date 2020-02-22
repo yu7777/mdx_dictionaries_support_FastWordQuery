@@ -31,8 +31,8 @@ The Little Dict
 牛津高阶双解(第9版)  
 
 ## To do list.  
-I am planning to work on 韦氏高阶 next.  
-waiting for mdd file.:smiley::smiley::smiley:
+I am planning to work on 韦氏 next.  
+waiting for mw_core.mdd file.:smiley::smiley::smiley:
       
       
 #            
