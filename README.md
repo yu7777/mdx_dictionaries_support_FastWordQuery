@@ -45,7 +45,9 @@ The following script is only for Wordquery addon
 
 # WordQuery-dict.   
 简明英汉字典   
-欧陆例句词典  
+欧陆例句词典    
+    
+        
 EPFD2017.mdx 词组词频词典。  
 
 Usage:    
